@@ -1,3 +1,6 @@
+//changed
+
+
 import AreaChartExample from "./charts/areachart";
 import "./index.css"
 import getData from "./charts/data/datas";
@@ -79,7 +82,7 @@ const PieDiversity=(data_diversity)=>{
     return(
         <>
             <div className="boxheader">Percentage</div>
-            <div className="boxarea">
+            <div className="boxarea" style={{width:"100%"}}>
                 <div style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
                     <select name="piemonth2" id="piemonth2" style={{height:"2em"}}>
                         <option value={1}>Jan</option><option value={2}>Feb</option><option value={3}>Mar</option>
@@ -132,7 +135,7 @@ const PieLocation=(data_location)=>{
                     </button>
                 </div>
                 {
-                    PieChartExample(data_diversity,piemonth3,pieyear3)
+                    PieChartExample(data_location,piemonth3,pieyear3)
                 }
             </div>
         </>
