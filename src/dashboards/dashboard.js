@@ -5,7 +5,7 @@ import PieChartExample from "./charts/piechart";
 import BarChartExample from "./charts/barchart";
 import LineChartExample from "./charts/linechart";
 import AreaChartExample from "./charts/areachart";
-import { Table } from "./charts/table";
+import DashNew from "./dashnew";
 import { useState } from "react";
 import getData from "./charts/data/datas";
 export default function Dashboard(){
@@ -15,13 +15,15 @@ export default function Dashboard(){
     const data_diversity=getData("Diversity");
     const data_location=getData("Location")
 
-    var new_data_dol={"root":[]};
+   
     var [piemonth1,setPieMonth1]=useState(1);
     var [pieyear1,setPieYear1]=useState(2000);
     var [piemonth2,setPieMonth2]=useState(1);
     var [pieyear2,setPieYear2]=useState(2000);
     var [piemonth3,setPieMonth3]=useState(1);
     var [pieyear3,setPieYear3]=useState(2000);
+
+    var new_data_dol={"root":[]};
     for(let i=1;i<data_dol.root.length;i++)
         new_data_dol.root.push(data_dol.root[i])
     return(
@@ -145,11 +147,14 @@ export default function Dashboard(){
                 
                 <div>
                 <div className="subdashheader">Onboarding / Separation</div>
-                <div className="gridbg">
+                <div className="gridbg onboard">
+                    <a href="/dashnew?a=areachart&b=doj" style={{gridColumn:"span 9"}} target="_blank">
                     <div className='box box2' style={{gridColumn:"span 9"}}>
                         <div className="boxheader">Box 2</div>
                             <div className="boxarea">{AreaChartExample(data_doj)}</div>
                     </div>
+                    </a>
+                <a href="/dashnew?a=areachart&b=dol" style={{gridColumn:"span 9"}} target="_blank">
                     <div className="box box3" style={{gridColumn:"span 9"}}>
                         <div className="boxheader">Box 3</div>
                         <div className="boxarea">
@@ -160,6 +165,7 @@ export default function Dashboard(){
                             </p>
                         </div>
                     </div>
+                </a>
                 </div>
             </div>
         </div>

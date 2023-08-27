@@ -2,7 +2,7 @@ import React from 'react';
 import Dashboard from "./dashboards/dashboard";
 function Dashboards(){
     return(
-        <div>
+        <div className='dashboards'>
             <button className='exportButton'>Export</button>
             <Dashboard/>
         </div>

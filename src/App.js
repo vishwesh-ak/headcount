@@ -35,6 +35,7 @@ import Header from './header';
 import Home from './Home'; 
 import Dashboards from './Dashboards';
 import Table from './table';  // Update the import to match your filename
+import DashNew from './dashboards/dashnew';
 
 function App() {
   return (
@@ -45,6 +46,8 @@ function App() {
           <Route path="/home" element={<div><Header /><Home /></div>} />
           <Route path="/table" element={<div><Header /><Table /></div>} />
           <Route path="/dashboards" element={<div style={{display:"flex"}}><Header/><Dashboards/></div>} />
+          
+          <Route path="/dashnew" element={<div><DashNew/></div>} />
         </Routes>
       </div>
     </Router>
