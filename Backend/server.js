@@ -10,7 +10,7 @@ const db = nano.use(dbName);
 app.use(bodyParser.json());
 app.use(cors());
 
-app.post('/api/addEmployee', (req, res) => {
+app.post('/api/addEmployee' , (req, res) => {
   const employeeData = req.body;
 
   db.insert(employeeData, (err, body) => {

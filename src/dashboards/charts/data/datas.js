@@ -16,17 +16,17 @@ const DOLdata={"root":[
 ]}
 
 const EMPTYPEdata={"root":[
-    {key:[2000,1,null,null,"P"],value:1},
-    {key:[2000,2,2001,2,"T"],value:2},
-    {key:[2000,3,null,null,"P"],value:2},
-    {key:[2000,4,2002,1,"P"],value:1}
+    {key:[2000,1,null,null,"P","Joseph"],value:1},
+    {key:[2000,2,2001,2,"T","Karla"],value:2},
+    {key:[2000,3,null,null,"P","Karla"],value:2},
+    {key:[2000,4,2002,1,"P","Joseph"],value:1}
 ]}
 
 const DIVERSITYdata={"root":[
-    {key:[2000,1,null,null,"Y"],value:1},
-    {key:[2000,2,2001,2,"Y"],value:3},
-    {key:[2000,3,null,null,"N"],value:5},
-    {key:[2000,4,2002,1,"N"],value:1}
+    {key:[2000,1,null,null,"Y","Mindy"],value:1},
+    {key:[2000,2,2001,2,"Y","Nathan"],value:3},
+    {key:[2000,3,null,null,"N","Oscar"],value:5},
+    {key:[2000,4,2002,1,"N","Paul"],value:1}
 ]}
 
 const LOCATIONdata={"root":[

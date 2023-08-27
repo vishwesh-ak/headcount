@@ -227,11 +227,13 @@ main body starts here*/
   font-family: REM;
   padding: 10px 10px 10px 10px;
   text-align: center;
+  width: 100%;
 }
 
 
 .boxarea{
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   margin: 12px;

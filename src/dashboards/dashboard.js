@@ -8,6 +8,7 @@ import AreaChartExample from "./charts/areachart";
 import DashNew from "./dashnew";
 import { useState } from "react";
 import getData from "./charts/data/datas";
+import ChooseBox from "./choosebox";
 export default function Dashboard(){
     const data_doj=getData("DOJ");
     const data_dol=getData("DOL");
@@ -31,117 +32,58 @@ export default function Dashboard(){
             <div>
                 <div className="subdashheader">Employee Type</div>
                 <div className="gridbg">
+                    <a href="/dashnew?a=barchart&b=emptype" target="_blank" style={{gridColumn:"span 7"}}>
                     <div className='box box2'>
-                        <div className="boxheader">Box 2</div>
-                        <div className="boxarea">{BarChartExample(data_emptype)}</div>
-                        {/* this function plots bargraph for the data_emptype as data */}
-                    </div>
+                        {ChooseBox("barchart","emptype")}
+                    </div>  
+                    </a>
                     <div className="box box4">
                         <div className="boxheader">Employee type vs time</div>
                         <div className="boxarea">{LineChartExample(data_emptype)}</div>
                     </div>
+                    <a href="/dashnew?a=piechart&b=emptype" style={{gridColumn:"span 3"}} target="_blank">
                     <div className="box box5">
-                        <div className="boxheader">Percentage</div>
-                        <div className="boxarea">
-                        <div style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
-                            <select name="piemonth1" id="piemonth1" style={{height:"2em"}}>
-                                <option value={1}>Jan</option><option value={2}>Feb</option><option value={3}>Mar</option>
-                                <option value={4}>Apr</option><option value={5}>May</option><option value={6}>Jun</option>
-                                <option value={7}>Jul</option><option value={8}>Aug</option><option value={9}>Sep</option>
-                                <option value={10}>Oct</option><option value={11}>Nov</option><option value={12}>Dec</option>
-                            </select>
-                            <select name="pieyear1" id="pieyear1" style={{height:"2em"}}>
-                                <option value={2000}>2000</option><option value={2001}>2001</option>
-                                <option value={2002}>2002</option><option value={2003}>2003</option>
-                            </select>
-                        <button type="submit" style={{width:"30%",height:"2em"}} onClick={()=>{
-                            setPieMonth1(document.getElementById("piemonth1").value);
-                            setPieYear1(document.getElementById("pieyear1").value);
-                            PieChartExample(data_location,piemonth1,pieyear1)
-                            }}>Submit</button>
-                        </div>
-                            {
-                            PieChartExample(data_emptype,piemonth1,pieyear1)
-                            }
-                        </div>
+                        {ChooseBox("piechart","emptype")}
                     </div>
+                    </a>
                 </div>
             </div>
             <div>
                 <div className="subdashheader">Diversity</div>
                 <div className="gridbg">
+                    <a href="/dashnew?a=barchart&b=diversity" target="_blank" style={{gridColumn:"span 7"}}>
                     <div className='box box2'>
-                        <div className="boxheader">Box 2</div>
-                            <div className="boxarea">{BarChartExample(data_diversity)}</div>
-                    </div>
+                        {ChooseBox("barchart","diversity")}
+                    </div>  
+                    </a>
                     <div className="box box4">
                         <div className="boxheader">Diversity vs time</div>
                         <div className="boxarea">{LineChartExample(data_diversity)}</div>
                     </div>
+                    <a href="/dashnew?a=piechart&b=diversity" style={{gridColumn:"span 3"}} target="_blank">
                     <div className="box box5">
-                        <div className="boxheader">Percentage</div>
-                        <div className="boxarea">
-                        <div style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
-                            <select name="piemonth2" id="piemonth2" style={{height:"2em"}}>
-                                <option value={1}>Jan</option><option value={2}>Feb</option><option value={3}>Mar</option>
-                                <option value={4}>Apr</option><option value={5}>May</option><option value={6}>Jun</option>
-                                <option value={7}>Jul</option><option value={8}>Aug</option><option value={9}>Sep</option>
-                                <option value={10}>Oct</option><option value={11}>Nov</option><option value={12}>Dec</option>
-                            </select>
-                            <select name="pieyear2" id="pieyear2" style={{height:"2em"}}>
-                                <option value={2000}>2000</option><option value={2001}>2001</option>
-                                <option value={2002}>2002</option><option value={2003}>2003</option>
-                            </select>
-                        <button type="submit" style={{width:"30%",height:"2em"}} onClick={()=>{
-                            setPieMonth2(document.getElementById("piemonth2").value);
-                            setPieYear2(document.getElementById("pieyear2").value);
-                            PieChartExample(data_location,piemonth2,pieyear2)
-                            }}>Submit</button>
-                        </div>
-                            {
-                            PieChartExample(data_diversity,piemonth2,pieyear2)
-                            }
-                            </div>
-                        </div>
+                        {ChooseBox("piechart","diversity")}
+                     </div>
+                    </a>
                     </div>
                 </div>
                 <div>
                 <div className="subdashheader">Location</div>
                 <div className="gridbg">
+                    <a href="/dashnew?a=barchart&b=location" target="_blank" style={{gridColumn:"span 7"}}>
                     <div className='box box2'>
-                        <div className="boxheader">Box 2</div>
-                            <div className="boxarea">{BarChartExample(data_location)}</div>
+                        {ChooseBox("barchart","location")}
                     </div>
+                    </a>
                     <div className="box box4">
                         <div className="boxheader">Location vs time</div>
                         <div className="boxarea">{LineChartExample(data_location)}</div>
                     </div>
+                    <a href="/dashnew?a=piechart&b=location" target="_blank" style={{gridColumn:"span 3"}}>
                     <div className="box box5">
-                        <div className="boxheader">Percentage</div>
-                        <div className="boxarea">
-                        <div style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
-                            <select name="piemonth3" id="piemonth3" style={{height:"2em"}}>
-                                <option value={1}>Jan</option><option value={2}>Feb</option><option value={3}>Mar</option>
-                                <option value={4}>Apr</option><option value={5}>May</option><option value={6}>Jun</option>
-                                <option value={7}>Jul</option><option value={8}>Aug</option><option value={9}>Sep</option>
-                                <option value={10}>Oct</option><option value={11}>Nov</option><option value={12}>Dec</option>
-                            </select>
-                            <select name="pieyear3" id="pieyear3" style={{height:"2em"}}>
-                                <option value={2000}>2000</option><option value={2001}>2001</option>
-                                <option value={2002}>2002</option><option value={2003}>2003</option>
-                            </select>
-                        <button type="submit" style={{width:"30%",height:"2em"}} onClick={()=>{
-                            setPieMonth3(document.getElementById("piemonth3").value);
-                            setPieYear3(document.getElementById("pieyear3").value);
-                            
-                            PieChartExample(data_location,piemonth3,pieyear3)
-                            }}>Submit</button>
-                        </div>
-                            {
-                            PieChartExample(data_location,piemonth3,pieyear3)
-                            }
-                            </div>
-                        </div>
+                        {ChooseBox("piechart","location")}
+                    </div>
+                    </a>
                     </div>
                 </div>
                 
@@ -150,20 +92,12 @@ export default function Dashboard(){
                 <div className="gridbg onboard">
                     <a href="/dashnew?a=areachart&b=doj" style={{gridColumn:"span 9"}} target="_blank">
                     <div className='box box2' style={{gridColumn:"span 9"}}>
-                        <div className="boxheader">Box 2</div>
-                            <div className="boxarea">{AreaChartExample(data_doj)}</div>
+                            {ChooseBox("areachart","doj")}
                     </div>
                     </a>
                 <a href="/dashnew?a=areachart&b=dol" style={{gridColumn:"span 9"}} target="_blank">
                     <div className="box box3" style={{gridColumn:"span 9"}}>
-                        <div className="boxheader">Box 3</div>
-                        <div className="boxarea">
-                            {
-                            AreaChartExample(new_data_dol)
-                            }
-                            <p style={{textAlign:"center"}}>Number of employees currently in the company: {data_dol.root[0].value}
-                            </p>
-                        </div>
+                        {ChooseBox("areachart","dol")}
                     </div>
                 </a>
                 </div>
