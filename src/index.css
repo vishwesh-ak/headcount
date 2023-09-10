@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 5px 5px 5px 245px;
+  padding: 50px 5px 5px 245px;
 
    
 /* Style for input fields within the table */
@@ -81,6 +81,7 @@ li{
   padding: 10px 20px;
   margin-bottom: 30px; 
 } */
+
 header {
   background-color: #0530AD;
   color: white;
@@ -89,6 +90,7 @@ header {
   bottom: 0; /* Extend the header to the bottom of the viewport */
   padding: 10px 20px;
   width: 200px; /* Set the width of the header */
+  z-index: 1;
 }
 
 

@@ -37,7 +37,7 @@
   --maincol:white;
   --sidebarfill:#ebebeb;
   --tablerowcolor:#4ca4de1f;
-  --tablerowcolor:#e9f4fb;
+  --tablerowcolor:#d0e8f7;
 
 }
 
@@ -45,6 +45,8 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  padding: 5px 5px 5px 245px;
 }
 
 .dashboards{
@@ -72,7 +74,7 @@ body {
 }
 
 /* sidebar starts here*/
-
+/*
 .sidebar{
   background-color: var(--sidebarfill);
   transition: all 0.5s;
@@ -109,7 +111,7 @@ body {
   width: 1.25em;
   margin-right: 10px;
 }
-
+*/
 /*sidebar ends here
 main body starts here*/
 
@@ -152,14 +154,14 @@ main body starts here*/
   display: grid;
   grid-template-rows: repeat(3,1fr);
   gap: 10px;
-  width:calc(100vw - 250px);
+  width:100%;
 }
 
 .gridbg{
   display: grid;
   grid-template-columns: repeat(18,1fr);
   gap: 10px;
-  width:calc(100vw - 240px);
+  width:100%;
 }
 .box{
   width:100%;
@@ -196,7 +198,7 @@ main body starts here*/
 
 .box1{
   grid-area: box1;
-  grid-column: span 9;
+  grid-column: span 7;
   grid-row: span 1;
 }
 .box2{
@@ -206,19 +208,10 @@ main body starts here*/
 }
 .box3{
   grid-area: box3 ;
-  grid-column: span 7;
-  grid-row: span 1;
-} 
-.box4{
-  grid-area: box4;
-  grid-column: span 7;
-  grid-row: span 1;
-}
-.box5{
-  grid-area: box5;
   grid-column: span 4;
   grid-row: span 1;
-}
+} 
+
 .boxheader{
   background-color: var(--boxheaderfill);
   color:var(--boxheadertext);
@@ -254,7 +247,8 @@ main body starts here*/
   padding:10px 10px 10px 10px;
   vertical-align:middle;
   text-align:left;
-  min-width:100px;
+  font-size: 12px;
+  min-width:40px;
   width: auto;
   white-space: nowrap;
 }
@@ -264,7 +258,7 @@ main body starts here*/
   text-align: center;
 }
 
-.oddrow{
+.oddrow *{
   background-color:var(--tablerowcolor);
 }
 
@@ -332,8 +326,8 @@ main body starts here*/
   }
 
   .table td,.table th{
-    font-size: 12px;
-    min-width:100px;
+    font-size: 10px;
+    min-width:40px;
     width: auto;
     line-break:normal;
   }

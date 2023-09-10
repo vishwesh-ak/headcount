@@ -45,7 +45,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/home" element={<div><Header /><Home /></div>} />
           <Route path="/table" element={<div><Header /><Table /></div>} />
-          <Route path="/dashboards" element={<div style={{display:"flex"}}><Header/><Dashboards/></div>} />
+          <Route path="/dashboards" element={<div style={{display:"flex"}}><Header className="sidebarclass"/><Dashboards className="mainbodyclass"/></div>} />
           
           <Route path="/dashnew" element={<div><DashNew/></div>} />
         </Routes>

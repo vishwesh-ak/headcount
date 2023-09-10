@@ -5,10 +5,17 @@ import AreaChartExample from "./charts/areachart";
 import "./index.css"
 import getData from "./charts/data/datas";
 import { useState } from "react";
+import "../App.scss"
 
 import PieChartExample from "./charts/piechart";
 import BarChartExample from "./charts/barchart";
+import DoubleBarChartExample from "./charts/doublebarchart";
 import LineChartExample from "./charts/linechart";
+import { TableLeader } from "./charts/table";
+import { TextInput,Button,FormGroup, Dropdown } from "@carbon/react";
+import makeBarGraphValues from "./components/functions/makeBarGraphValues"
+import makePieValues from "./components/functions/makePieValues"
+
 
 var data_emptype=getData("Emp_Type")
 var data_diversity=getData("Diversity")
@@ -16,92 +23,110 @@ var data_location=getData("Location")
 var data_doj=getData("DOJ")
 var data_dol=getData("DOL")
 
-const BarEmpType=(data_emptype) =>{
+const BarEmpType=(data_emptype,barmonth1,baryear1) =>{
+    var fulldata=getData("fulldata");
+    const [leadername,setLeaderName]=useState("");
+    var newpagedata_emptype=makeBarGraphValues(fulldata,leadername)
     return(
         <>
-        <div className="boxheader">Box 2</div>
-        <div className="boxarea" style={{width:"100%"}}>{BarChartExample(data_emptype)}</div>
+            <div className="boxheader">Leader statistics</div>
+            <div className="boxarea" style={{height:"100%", width:"100%",padding:"10px", alignItems:"center",justifyItems:"center"}}>
+                <FormGroup style={{display:"flex",padding:"0"}}>
+                <TextInput id="leadernameinput" style={{height:"48px",fontSize:"12px",margin:"0",boxShadow:"0px 0px 3px 3px #bbbbbb"}}></TextInput>
+                <Button type="submit" className="submitbutton" style={{paddingRight:"5px",paddingLeft:"5px",fontSize:"10px",margin:"0",boxShadow:"0px 0px 3px 3px #bbbbbb"}}
+                onClick={()=>{setLeaderName(document.getElementById("leadernameinput").value);console.log(leadername)}}>Submit</Button>
+                </FormGroup>
+                <br/>
+                <div style={{display:"flex",width:"100%",height:"100%"}}>
+                       <div style={{height:"100%",width:"100%"}}>{ BarChartExample(newpagedata_emptype,"samecolor")}brrrr</div>
+                       <div style={{height:"100%",width:"100%",overflow:"scroll",border:"5px solid #000000aa",borderRadius:"10px"}}>{TableLeader(fulldata,leadername)}</div>
+                </div>
+            </div>
         </>
     )
 }
 
 const BarDiversity=(data_diversity) =>{
+    var fulldata=getData("fulldata");
+    const [leadername,setLeaderName]=useState("");
+    var newpagedata_diversity=makeBarGraphValues(fulldata,leadername)
     return(
         <>
-        <div className="boxheader">Box 2</div>
-        <div className="boxarea" style={{width:"100%"}}>{BarChartExample(data_diversity)}</div>
+            <div className="boxheader">Leader statistics</div>
+            <div className="boxarea" style={{height:"100%", width:"100%",padding:"10px", alignItems:"center",justifyItems:"center"}}>
+                <FormGroup style={{display:"flex",padding:"0"}}>
+                <TextInput placeholder="Enter leader name" id="leadernameinput" style={{height:"48px",fontSize:"12px",margin:"0",boxShadow:"0px 0px 3px 3px #bbbbbb"}}></TextInput>
+                <Button type="submit" className="submitbutton" style={{paddingRight:"5px",paddingLeft:"5px",fontSize:"10px",margin:"0",boxShadow:"0px 0px 3px 3px #bbbbbb"}}
+                onClick={()=>{setLeaderName(document.getElementById("leadernameinput").value);console.log(leadername)}}>Submit</Button>
+                </FormGroup>
+                <br/>
+                <div style={{display:"flex",width:"100%",height:"100%"}}>
+                       <div style={{height:"100%",width:"100%"}}>{ DoubleBarChartExample(newpagedata_diversity,"samecolor")}brrrr</div>
+                       <div style={{height:"100%",width:"100%",overflow:"scroll",border:"5px solid #000000aa",borderRadius:"10px"}}>{TableLeader(fulldata,leadername)}</div>
+                </div>
+            </div>
         </>
     )
 }
 
 const BarLocation=(data_location) =>{
+    var [barmonth3,setBarMonth3]=useState(1);
+    var [baryear3,setBarYear3]=useState(2000);
     return(
         <>
-        <div className="boxheader">Box 2</div>
-        <div className="boxarea" style={{width:"100%",height:"100%"}}>{BarChartExample(data_location)}</div>
-        </>
-    )
-}
-
-const PieEmpType = (data_emptype) =>{
-    var [piemonth1,setPieMonth1]=useState(1);
-    var [pieyear1,setPieYear1]=useState(2000);
-    return(
-        <>
-            <div className="boxheader">Percentage</div>
+            <div className="boxheader">Leader statistics</div>
             <div className="boxarea" style={{height:"100%", width:"100%"}}>
                 <div style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
-                    <select name="piemonth1" id="piemonth1" style={{height:"2em"}}>
+                    <select name="barmonth3" id="barmonth3" style={{height:"2em"}}>
                         <option value={1}>Jan</option><option value={2}>Feb</option><option value={3}>Mar</option>
                         <option value={4}>Apr</option><option value={5}>May</option><option value={6}>Jun</option>
                         <option value={7}>Jul</option><option value={8}>Aug</option><option value={9}>Sep</option>
                         <option value={10}>Oct</option><option value={11}>Nov</option><option value={12}>Dec</option>
                     </select>
-                    <select name="pieyear1" id="pieyear1" style={{height:"2em"}}>
+                    <select name="baryear3" id="baryear3" style={{height:"2em"}}>
                         <option value={2000}>2000</option><option value={2001}>2001</option>
                         <option value={2002}>2002</option><option value={2003}>2003</option>
                     </select>
                     <button type="submit" style={{width:"30%",height:"2em"}} onClick={()=>{
-                        setPieMonth1(document.getElementById("piemonth1").value);
-                        setPieYear1(document.getElementById("pieyear1").value);
-                        PieChartExample(data_emptype,piemonth1,pieyear1)
+                        setBarMonth3(document.getElementById("barmonth3").value);
+                        setBarYear3(document.getElementById("baryear3").value);
+                        BarChartExample(data_location,barmonth3,baryear3)
                         }}>Submit
                     </button>
                 </div>
                 {
-                PieChartExample(data_emptype,piemonth1,pieyear1)
+                BarChartExample(data_location,barmonth3,baryear3)
                 }
             </div>
         </>
     )
 }
 
-const PieDiversity=(data_diversity)=>{
-    var [piemonth2,setPieMonth2]=useState(1);
-    var [pieyear2,setPieYear2]=useState(2000);
+const Pie=(data_diversity)=>{
+    var [piemonth,setPieMonth]=useState(1);
+    var [pieyear,setPieYear]=useState(2000);
     return(
         <>
             <div className="boxheader">Percentage</div>
             <div className="boxarea" style={{width:"100%"}}>
                 <div style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
-                    <select name="piemonth2" id="piemonth2" style={{height:"2em"}}>
-                        <option value={1}>Jan</option><option value={2}>Feb</option><option value={3}>Mar</option>
-                        <option value={4}>Apr</option><option value={5}>May</option><option value={6}>Jun</option>
-                        <option value={7}>Jul</option><option value={8}>Aug</option><option value={9}>Sep</option>
-                        <option value={10}>Oct</option><option value={11}>Nov</option><option value={12}>Dec</option>
-                    </select>
-                    <select name="pieyear2" id="pieyear2" style={{height:"2em"}}>
-                        <option value={2000}>2000</option><option value={2001}>2001</option>
-                        <option value={2002}>2002</option><option value={2003}>2003</option>
-                    </select>
-                    <button type="submit" style={{width:"30%",height:"2em"}} onClick={()=>{
-                        setPieMonth2(document.getElementById("piemonth2").value);
-                        setPieYear2(document.getElementById("pieyear2").value);
-                        PieChartExample(data_diversity,piemonth2,pieyear2)
-                        }}>Submit</button>
+                    <Dropdown label="Month" id="carbondropmonth" items={[
+                        {id:1,label:"Jan"},{id:2,label:"Feb"},{id:3,label:"Mar"},{id:4,label:"Apr"},
+                        {id:5,label:"May"},{id:6,label:"Jun"},{id:7,label:"Jul"},{id:8,label:"Aug"},
+                        {id:9,label:"Sep"},{id:10,label:"Oct"},{id:11,label:"Nov"},{id:12,label:"Dec"}
+                    ]}
+                    initialSelectedItem={{id:1,label:"Jan"}}
+                    onChange={(event)=>{setPieMonth(event.selectedItem.id)}}
+                    />
+                    <Dropdown label="Select" id="carbondropyear" items={[
+                        {id:2000,label:"2000"},{id:2001,label:"2001"},
+                        {id:2002,label:"2002"},{id:2003,label:"2003"},
+                    ]}
+                    initialSelectedItem={{id:2000,label:"2000"}}
+                    onChange={(event)=>{setPieYear(event.selectedItem.id)}}/>
                 </div>
                 {
-                    PieChartExample(data_diversity,piemonth2,pieyear2)
+                    PieChartExample(makePieValues(data_diversity,piemonth,pieyear))
                 }
             </div>  
         </>
@@ -109,45 +134,11 @@ const PieDiversity=(data_diversity)=>{
     )
 }
 
-const PieLocation=(data_location)=>{
-    var [piemonth3,setPieMonth3]=useState(1);
-    var [pieyear3,setPieYear3]=useState(2000);
-    return(
-        <>
-            <div className="boxheader">Percentage</div>
-            <div className="boxarea" style={{width:"100%"}}>
-                <div style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
-                    <select name="piemonth3" id="piemonth3" style={{height:"2em"}}>
-                        <option value={1}>Jan</option><option value={2}>Feb</option><option value={3}>Mar</option>
-                        <option value={4}>Apr</option><option value={5}>May</option><option value={6}>Jun</option>
-                        <option value={7}>Jul</option><option value={8}>Aug</option><option value={9}>Sep</option>
-                        <option value={10}>Oct</option><option value={11}>Nov</option><option value={12}>Dec</option>
-                    </select>
-                    <select name="pieyear3" id="pieyear3" style={{height:"2em"}}>
-                        <option value={2000}>2000</option><option value={2001}>2001</option>
-                        <option value={2002}>2002</option><option value={2003}>2003</option>
-                    </select>
-                    <button type="submit" style={{width:"30%",height:"2em"}} onClick={()=>{
-                        setPieMonth3(document.getElementById("piemonth3").value);
-                        setPieYear3(document.getElementById("pieyear3").value);
-                        PieChartExample(data_location,piemonth3,pieyear3)
-                        }}>Submit
-                    </button>
-                </div>
-                {
-                    PieChartExample(data_location,piemonth3,pieyear3)
-                }
-            </div>
-        </>
-                        
-    )
-}
-
 function AreaDOJ(data_doj){
     return(
         <>
             <div className="boxheader" style={{width:"100%"}}>
-                Box 2
+                Box 2   
             </div>
             <div className="boxarea" style={{height:"100%",width:"100%"}}>
                 {AreaChartExample(data_doj)}
@@ -174,7 +165,7 @@ function AreaDOL(data_dol){
 }
 
 
-export default function ChooseBox(a,b){
+export default function ChooseBox(a,b,c,d){
     if(a==="areachart"){
         if(b==="doj")
             return AreaDOJ(data_doj);
@@ -183,18 +174,20 @@ export default function ChooseBox(a,b){
     }
     if(a==="piechart"){
         if(b==="emptype")
-            return PieEmpType(data_emptype);
+            return Pie(data_emptype,c,d);
         if(b=="diversity")
-            return PieDiversity(data_diversity);
+            return Pie(data_diversity,c,d);
         else    
-            return PieLocation(data_location);
+            return Pie(data_location);
     }
     if(a==="barchart"){
         if(b==="emptype")
-            return BarEmpType(data_emptype);
+            return BarEmpType(data_emptype,c,d);
         if(b=="diversity")
             return BarDiversity(data_diversity);
         else    
             return BarLocation(data_location);
     }
 }
+
+
