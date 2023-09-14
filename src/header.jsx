@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './index.css';
 import { ImHome3 } from "react-icons/im";
+import { Button } from '@carbon/react';
 
 function Header() {
   const navigate = useNavigate();
@@ -11,25 +12,27 @@ function Header() {
     // For now, simply navigate to the login page.
     navigate('/');
   };
-  const [isSideBar,setSideBar]=useState(true)
+  const [isSideBar,setSideBar]=useState(false)
   const togglebutton=useRef(null);
 
+  console.log("HERE")
+  console.log(document.body.clientWidth)
   useEffect(()=>{
     if(togglebutton.current){
-    document.getElementById("sidebar").style.translate="0% 0%";
-    document.body.style.padding="10px 5px 5px 245px";
-    document.getElementById("togglebutton").style.translate="0 0";
-    document.getElementById("togglebutton").innerHTML="<";}},[]);
+    document.getElementById("sidebar").style.translate="-100% 0%";
+    document.getElementById("togglebutton").style.translate="-200px 0px";
+    document.getElementById("togglebutton").innerHTML=">";}},[]);
 
   return (
     <div>
-    <div id="togglebutton" ref={togglebutton} style={{position:"absolute",left:"200px",top:"-5px",transition:"0.3s",backgroundColor:"#0530ad",color:"white",padding:"0.3em 0.6em 0.3em 0.6em",cursor:"pointer"}}
-    
-
+    <div id="togglebutton" ref={togglebutton} 
+    style={{position:"fixed",left:"200px",top:"-5px",zIndex:"1",transition:"0.3s",
+            height:"calc( 100vh + 5px)",
+            backgroundColor:"#0530ad",color:"white",padding:"0.3em 0.6em 0.3em 0.6em",cursor:"pointer",
+            fontSize:"20px"}}
     onClick={()=>{
       setSideBar(!isSideBar);
       document.getElementById("sidebar").style.translate=isSideBar?"0% 0%":"-100% 0%";
-      document.body.style.paddingLeft=isSideBar?"245px":"5px";
       document.getElementById("togglebutton").style.translate=isSideBar?"0 0":"-200px 0px";
       document.getElementById("togglebutton").innerHTML=isSideBar?"<":">";
     }}>
@@ -54,7 +57,7 @@ function Header() {
           <Link to="/dashboards">Dashboards</Link>
         </li>
         <li className="nav-item">
-          <button onClick={handleLogout}>Logout</button>
+          <Button onClick={handleLogout}>Logout</Button>
         </li>
       </ul>
     </header>

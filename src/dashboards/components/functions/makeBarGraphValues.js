@@ -1,18 +1,21 @@
 import padValues from "./padValues"
 export default function makeBarGraphValues(data,leadername){
+    console.log("ytre")
+    console.log(data)
     var a=[],x1,x2
-    for(var i=0;i<data.root.length;i++){
-        console.log(data.root[i])
-        if(data.root[i].Leader_Name===leadername){
-            if(data.root[i].DOL.length==0){
-                x1=data.root[i].DOL[0]
-                x2=data.root[i].DOL[1]
+    for(var i=0;i<data.length;i++){
+        console.log("inner ytre")
+        console.log(data[i])
+        if(data[i].key[5]===leadername){
+            /*if(data[i].key[2]!=null && data[i].key[3]!=null){
+                x1=data[i].key[2]
+                x2=data[i].key[3]
             }
             else{
                 x1=null
                 x2=null
-            }
-            a.push({"key":[data.root[i].DOJ[0],data.root[i].DOJ[1],x1,x2],"value":1})
+            }*/
+            a.push({"group":data[i].key[4],"key":data[i].key.slice(0,4),"value":1})
         }
     }
     a=padValues(a)

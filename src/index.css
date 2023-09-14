@@ -1,13 +1,13 @@
 body {
   margin: 0;
+  padding:40px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 50px 5px 5px 245px;
 
-   
+  
 /* Style for input fields within the table */
 table input[type="text"] {
   width: 100%;
@@ -16,13 +16,13 @@ table input[type="text"] {
   background-color: #f2f2f2; /* Add the desired background color here */
   box-sizing: border-box;
 }
- 
 }
+
 .bg-gradient{
 height:100vh;
 width: 100%;
 /* background-image: linear-gradient(#240046, #3c096c, #5a189a ,#7b2cbf, #9d4edd ); */
-padding: 0%; 
+padding-left: 38px;   
   
 
 }
@@ -40,6 +40,7 @@ code {
 .nav-item a{
   color: white;
   text-decoration: none;
+  font-size:18px;
 }
 /* .nav-list{
   display: flex;
@@ -71,6 +72,10 @@ li{
   font-weight: bold;
 
 }
+
+.nav-list li{
+  margin:10px;
+}
 /* header{
   background-color: #18002e;
   color: white;
@@ -92,6 +97,7 @@ header {
   width: 200px; /* Set the width of the header */
   z-index: 1;
 }
+
 
 
 
@@ -239,13 +245,7 @@ table th {
 
 /* ----------------------------------------------------Dashboards ----------------------------------------------------*/
 
-.exportButton {
-  position: fixed;
-  bottom: 0;
-  right:0;
-  margin: 30px;
-  z-index: 1;
-}
+
 
 /* ----------------------------------------------------Login Page ----------------------------------------------------*/
 .login_wrap {

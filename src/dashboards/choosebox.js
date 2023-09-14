@@ -1,20 +1,13 @@
 //changed
 
 
-import AreaChartExample from "./charts/areachart";
 import "./index.css"
 import getData from "./charts/data/datas";
-import { useState } from "react";
 import "../App.scss"
 
-import PieChartExample from "./charts/piechart";
-import BarChartExample from "./charts/barchart";
-import DoubleBarChartExample from "./charts/doublebarchart";
-import LineChartExample from "./charts/linechart";
-import { TableLeader } from "./charts/table";
-import { TextInput,Button,FormGroup, Dropdown } from "@carbon/react";
-import makeBarGraphValues from "./components/functions/makeBarGraphValues"
-import makePieValues from "./components/functions/makePieValues"
+import AreaGraph from "./components/choosebox_components/area"
+import PieGraph from "./components/choosebox_components/pie"
+import BarGraph from "./components/choosebox_components/bar"
 
 
 var data_emptype=getData("Emp_Type")
@@ -22,7 +15,7 @@ var data_diversity=getData("Diversity")
 var data_location=getData("Location")
 var data_doj=getData("DOJ")
 var data_dol=getData("DOL")
-
+/*
 const BarEmpType=(data_emptype,barmonth1,baryear1) =>{
     var fulldata=getData("fulldata");
     const [leadername,setLeaderName]=useState("");
@@ -102,37 +95,6 @@ const BarLocation=(data_location) =>{
     )
 }
 
-const Pie=(data_diversity)=>{
-    var [piemonth,setPieMonth]=useState(1);
-    var [pieyear,setPieYear]=useState(2000);
-    return(
-        <>
-            <div className="boxheader">Percentage</div>
-            <div className="boxarea" style={{width:"100%"}}>
-                <div style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
-                    <Dropdown label="Month" id="carbondropmonth" items={[
-                        {id:1,label:"Jan"},{id:2,label:"Feb"},{id:3,label:"Mar"},{id:4,label:"Apr"},
-                        {id:5,label:"May"},{id:6,label:"Jun"},{id:7,label:"Jul"},{id:8,label:"Aug"},
-                        {id:9,label:"Sep"},{id:10,label:"Oct"},{id:11,label:"Nov"},{id:12,label:"Dec"}
-                    ]}
-                    initialSelectedItem={{id:1,label:"Jan"}}
-                    onChange={(event)=>{setPieMonth(event.selectedItem.id)}}
-                    />
-                    <Dropdown label="Select" id="carbondropyear" items={[
-                        {id:2000,label:"2000"},{id:2001,label:"2001"},
-                        {id:2002,label:"2002"},{id:2003,label:"2003"},
-                    ]}
-                    initialSelectedItem={{id:2000,label:"2000"}}
-                    onChange={(event)=>{setPieYear(event.selectedItem.id)}}/>
-                </div>
-                {
-                    PieChartExample(makePieValues(data_diversity,piemonth,pieyear))
-                }
-            </div>  
-        </>
-
-    )
-}
 
 function AreaDOJ(data_doj){
     return(
@@ -148,9 +110,9 @@ function AreaDOJ(data_doj){
 }
 
 function AreaDOL(data_dol){
-    var new_data_dol={"root":[]};
-    for(let i=1;i<data_dol.root.length;i++)
-        new_data_dol.root.push(data_dol.root[i])
+    var new_data_dol=[]
+    for(let i=1;i<data_dol.length;i++)
+        new_data_dol.push(data_dol[i])
     return(
         <>
             <div className="boxheader" style={{width:"100%"}}>
@@ -158,35 +120,35 @@ function AreaDOL(data_dol){
             </div>
             <div className="boxarea" style={{width:"100%"}}>
                 {AreaChartExample(new_data_dol)}
-                <p style={{textAlign:"center"}}>Number of employees currently in the company: {data_dol.root[0].value}</p>
+                <p style={{textAlign:"center"}}>Number of employees currently in the company: {data_dol[0].value}</p>
             </div>
         </>
     )
 }
-
+*/
 
 export default function ChooseBox(a,b,c,d){
     if(a==="areachart"){
         if(b==="doj")
-            return AreaDOJ(data_doj);
+            return AreaGraph(data_doj,"Employee join count per month");
         else
-            return AreaDOL(data_dol);
+            return AreaGraph(data_dol,"Employee leave count per month");
     }
     if(a==="piechart"){
         if(b==="emptype")
-            return Pie(data_emptype,c,d);
+            return PieGraph(data_emptype,c,d);
         if(b=="diversity")
-            return Pie(data_diversity,c,d);
+            return PieGraph(data_diversity,c,d);
         else    
-            return Pie(data_location);
+            return PieGraph(data_location);
     }
     if(a==="barchart"){
         if(b==="emptype")
-            return BarEmpType(data_emptype,c,d);
+            return BarGraph(data_emptype);
         if(b=="diversity")
-            return BarDiversity(data_diversity);
+            return BarGraph(data_diversity);
         else    
-            return BarLocation(data_location);
+            return BarGraph(data_location);
     }
 }
 

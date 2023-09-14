@@ -1,14 +1,15 @@
 //dashboard for diversity
 
 import "../../index.css"
-import PieChartExample from "../../charts/piechart";
-import BarChartExample from "../../charts/barchart";
-import LineChartExample from "../../charts/linechart";
 import { useState } from "react";
-import PieChartData from "../../charts/data/maindata"
 import onlyCurrentEmployees from "../functions/onlyCurrentEmployees";
 
 import ChooseBox from "../../choosebox";
+import Month_Dropdown from "../miscellaneous/month_dropdown";
+import Year_Dropdown from "../miscellaneous/year_dropdown";
+import { GroupedBarChart } from "@carbon/charts-react";
+import '@carbon/charts-react/styles.css'
+import baroptions from "../miscellaneous/barchart_options";
 
 export default function Dash2(data_diversity){
     
@@ -20,43 +21,33 @@ export default function Dash2(data_diversity){
             <div className="subdashheader">Diversity</div>
             <div className="gridbg">
                 <div className='box box1'>
-                <div style={{display:"flex",alignItems:"center",justifyContent:"center",padding:"10px"}}>
-                    <select name="barmonth2" id="barmonth2" style={{width:"20%",height:"2em"}}>
-                        <option value={1}>Jan</option><option value={2}>Feb</option><option value={3}>Mar</option>
-                        <option value={4}>Apr</option><option value={5}>May</option><option value={6}>Jun</option>
-                        <option value={7}>Jul</option><option value={8}>Aug</option><option value={9}>Sep</option>
-                        <option value={10}>Oct</option><option value={11}>Nov</option><option value={12}>Dec</option>
-                    </select>
-                    <select name="baryear2" id="baryear2" style={{width:"20%",height:"2em"}}>
-                        <option value={2000}>2000</option><option value={2001}>2001</option>
-                        <option value={2002}>2002</option><option value={2003}>2003</option>
-                    </select>
-                    <button type="submit" style={{width:"10%",height:"2em"}} onClick={()=>{
-                        setMonth2(document.getElementById("barmonth2").value);
-                        setYear2(document.getElementById("baryear2").value);
-                        }}>Submit
-                    </button>
-                </div>
-                <a href={"/dashnew?a=barchart&b=diversity&c="+month2+"&d="+year2} target="_blank" style={{position:"absolute"}}>
-                        Expand
+                <a href={"/dashnew?a=barchart&b=diversitye&c="+month2+"&d="+year2} target="_blank">
+                        <div style={{position:"absolute",margin:"5px",width:"20px",height:"20px",borderRadius:"50%",backgroundColor:"#77777777"}}>
+                            
+                        </div>
                     </a>
                     <div className="boxheader">Number of employees under each leader</div>
-                    <div className="boxarea" style={{height:"100%", width:"100%"}}>
-                        {
-                        BarChartExample(onlyCurrentEmployees(data_diversity,month2,year2))
-                        }
+                    <div className="boxarea"    >
+                        <div style={{display:"flex",alignItems:"center",justifyContent:"center",padding:"10px"}}>
+                            {Month_Dropdown(setMonth2)}
+                            {Year_Dropdown(setYear2)}
+                        </div>
+                        <GroupedBarChart data={onlyCurrentEmployees(data_diversity,month2,year2)}
+                            options={baroptions}/>
                     </div>
                 </div>  
                 <div className="box box2">
                     <div className="boxheader">Diversity vs time</div>
-                    <div className="boxarea">{LineChartExample(data_diversity)}</div>
+                    <div className="boxarea">{/*LineChartExample(data_diversity)*/}</div>
                 </div>
                 
                 <div className="box box3">
                     
-                <a href="/dashnew?a=piechart&b=diversity" style={{gridColumn:"span 3"}} target="_blank">
-                    Expand
-                </a>
+                <a href={"/dashnew?a=piechart&b=diversity&c="+month2+"&d="+year2} target="_blank">
+                        <div style={{position:"absolute",margin:"5px",width:"20px",height:"20px",borderRadius:"50%",backgroundColor:"#77777777"}}>
+                            
+                        </div>
+                    </a>
                     {ChooseBox("piechart","diversity")}
                  </div>
                 </div>
