@@ -12,12 +12,6 @@ export default function LeaderCurrentEmployees(data,month,year){
         }
         
         if(data[i].key[2]==null && data[i].key[3]==null){
-            /*if(a[data.root[i].key[5]]) {
-                a[data.root[i].key[5]]+=data.root[i].value;
-              } else {
-                a[data.root[i].key[5]] = data.root[i].value;
-                keys.push(data.root[i].key[5])
-              }*/
             if(d[data[i].key[5]]){
             }
             else{

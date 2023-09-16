@@ -37,14 +37,6 @@ export default function Dash3(data_location){
                     </div>
                     </div>
                     <div className="box box2">
-                        {/*<div className="boxheader">Location vs time</div>
-                        <div className="boxarea">{//LineChartExample(data_location)}
-                            <a href={"/dashnew?a=linechart&b=location&c="+month3+"&d="+year3} target="_blank">
-                                <div style={{position:"absolute",margin:"5px",width:"20px",height:"20px",borderRadius:"50%",backgroundColor:"#77777777"}}>
-                        
-                                </div>
-                            </a>
-                        </div>*/}
                         <a href={"/dashnew?a=tablechart&b=location&c="+month3+"&d="+year3} target="_blank">
                             <div style={{position:"absolute",margin:"5px",width:"20px",height:"20px",borderRadius:"50%",backgroundColor:"#77777777"}}>
                                 </div>

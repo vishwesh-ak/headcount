@@ -34,7 +34,6 @@ export default function Dash1(data_emptype){
                     </div>
                 </div>  
                 <div className="box box2">
-                    {/* <div className="boxarea">{LineChartExample(data_emptype)}</div> */}
                     <a href={"/dashnew?a=tablechart&b=emptype&c="+month1+"&d="+year1} target="_blank">
                         <div style={{position:"absolute",margin:"5px",width:"20px",height:"20px",borderRadius:"50%",backgroundColor:"#77777777"}}>
                             
