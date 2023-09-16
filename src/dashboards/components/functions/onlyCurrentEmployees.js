@@ -2,8 +2,6 @@
 export default function onlyCurrentEmployees(data,month,year){
     var a=new Map(),mapkey;
     var keys=[]
-    console.log("label")
-    console.log(data)
     for(var i=0;i<data.length;i++){
         if(data[i].key[0]==year && data[i].key[1]>month){
             continue;
@@ -18,10 +16,8 @@ export default function onlyCurrentEmployees(data,month,year){
                 a.set(mapkey,a.get(mapkey)+data[i].value);
                 continue;
                 }
-            console.log("kello")
             a.set(mapkey,data[i].value)
             keys.push(mapkey)
-            console.log(a)
         }
         if(data[i].key[2]==year && data[i].key[3]>=month){
           mapkey=[data[i].key[5],data[i].key[4]]
@@ -47,8 +43,5 @@ export default function onlyCurrentEmployees(data,month,year){
       mapkey=Array.from(a.keys())[i];
       b.push({group:mapkey[1],key:mapkey[0],value:a.get(mapkey)})
     }
-    console.log("B FINAL HERE")
-    console.log(b)
-    console.log(mapkey)
     return b
 }

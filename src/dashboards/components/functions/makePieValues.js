@@ -2,8 +2,6 @@
 export default function makePieValues(data,month,year){
     var a={}
     var keys=[]
-    console.log("kkkkk")
-    console.log(data)
     for(var i=0;i<data.length;i++){
         if(data[i].key[0]==year && data[i].key[1]>month){
             continue;
@@ -42,7 +40,5 @@ export default function makePieValues(data,month,year){
     for(i=0;i<keys.length;i++){
         b.push({group:keys[i],value:a[keys[i]]})
     }
-    console.log("PIE:::")
-    console.log(b)
     return b
 }

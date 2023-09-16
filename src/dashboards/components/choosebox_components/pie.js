@@ -2,15 +2,13 @@ import { useState } from "react";
 import Month_Dropdown from "../miscellaneous/month_dropdown";
 import Year_Dropdown from "../miscellaneous/year_dropdown";
 import makePieValues from "../functions/makePieValues";
-import { DonutChart } from "@carbon/charts-react";
+import { DonutChart, PieChart } from "@carbon/charts-react";
 import pieoptions from "../miscellaneous/piechart_options";
 import "../../index.css"
 import { ResponsiveContainer } from "recharts";
 export const PieGraph=(data,month,year)=>{
     var [piemonth,setPieMonth]=useState(month);
     var [pieyear,setPieYear]=useState(year);
-    console.log("pppppp")
-    console.log(data)
     return(
         <>
             <div className="boxheader">Percentage</div>

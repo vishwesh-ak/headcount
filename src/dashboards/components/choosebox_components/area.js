@@ -4,8 +4,6 @@ import padValues from "../functions/padValuesAreaChart"
 
 const AreaGraph=(data,groupname)=>{
     var newdata=padDOJDOLValues(data,groupname)
-    console.log("This is")
-    console.log(newdata)
     
     return(
         <>
@@ -25,7 +23,6 @@ function padDOJDOLValues(data,groupname){
     var a=[]
     for(var i=0;i<data.length;i++){
         if(data[i].key[2]==null && data[i].key[3]==null){
-            console.log("Dat: "+data[i].key)
             if(data[i].key[0]==null && data[i].key[1]==null)
                 a.push({group:groupname,key:"Present",value:data[i].value})        
             else

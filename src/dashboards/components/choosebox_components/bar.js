@@ -10,8 +10,6 @@ const BarGraph=(data,choice) =>{
     const [leadername,setLeaderName]=useState("");
     const fulldata=getData("fulldata")
     var newpagedata_emptype=makeBarGraphValues(data,leadername)
-    console.log("yesssssy")
-    console.log(newpagedata_emptype)
     return(
         <>
             <div className="boxheader">Leader statistics</div>

@@ -8,6 +8,7 @@ import "../App.scss"
 import AreaGraph from "./components/choosebox_components/area"
 import PieGraph from "./components/choosebox_components/pie"
 import BarGraph from "./components/choosebox_components/bar"
+import Groupwise_DOJ_DOL_Table from "./components/choosebox_components/table_v2";
 
 
 var data_emptype=getData("Emp_Type")
@@ -137,7 +138,7 @@ export default function ChooseBox(a,b,c,d){
     if(a==="piechart"){
         if(b==="emptype")
             return PieGraph(data_emptype,c,d);
-        if(b=="diversity")
+        if(b==="diversity")
             return PieGraph(data_diversity,c,d);
         else    
             return PieGraph(data_location);
@@ -145,10 +146,19 @@ export default function ChooseBox(a,b,c,d){
     if(a==="barchart"){
         if(b==="emptype")
             return BarGraph(data_emptype);
-        if(b=="diversity")
+        if(b==="diversity")
             return BarGraph(data_diversity);
         else    
             return BarGraph(data_location);
+    }
+    if(a==="tablechart"){
+        if(b==="emptype")
+            return Groupwise_DOJ_DOL_Table(data_emptype)
+        if(b==="diversity")
+            return Groupwise_DOJ_DOL_Table(data_diversity)
+        if(b==="location")
+            return Groupwise_DOJ_DOL_Table(data_location);
+        
     }
 }
 

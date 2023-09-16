@@ -59,7 +59,6 @@ function checkleader(data,leader){
     }
     var i=0,j=0,count=0,b;
     for(i=0;i<data.length;i++){
-        console.log(data[i].key)
         if(data[i].key[8]==leader){
             count+=1
             b={id:count}
@@ -72,7 +71,5 @@ function checkleader(data,leader){
             a.rows.push(b)
         }
     }
-    console.log("popopopop")
-    console.log(a)
     return a
 }

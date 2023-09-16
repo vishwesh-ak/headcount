@@ -37,8 +37,12 @@ export default function Dash2(data_diversity){
                     </div>
                 </div>  
                 <div className="box box2">
-                    <div className="boxheader">Diversity vs time</div>
-                    <div className="boxarea">{/*LineChartExample(data_diversity)*/}</div>
+                    <a href={"/dashnew?a=tablechart&b=diversity&c="+month2+"&d="+year2} target="_blank">
+                        <div style={{position:"absolute",margin:"5px",width:"20px",height:"20px",borderRadius:"50%",backgroundColor:"#77777777"}}>
+                            
+                        </div>
+                    </a>
+                    {ChooseBox("tablechart","diversity")}
                 </div>
                 
                 <div className="box box3">

@@ -15,8 +15,6 @@ function Header() {
   const [isSideBar,setSideBar]=useState(false)
   const togglebutton=useRef(null);
 
-  console.log("HERE")
-  console.log(document.body.clientWidth)
   useEffect(()=>{
     if(togglebutton.current){
     document.getElementById("sidebar").style.translate="-100% 0%";

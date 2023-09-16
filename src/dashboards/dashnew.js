@@ -7,7 +7,6 @@ const a = params.get("a");
 const b = params.get("b");
 const c = params.get("c");
 const d = parseInt(params.get("d"));
-console.log("C: "+c+"   D: "+d)
 
     return(
         <div className="newpagemaindiv">
