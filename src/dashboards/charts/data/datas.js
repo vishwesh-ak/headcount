@@ -1,4 +1,22 @@
+import axios from "axios";
+import { useEffect,useState } from "react";
+      
+
 /*These are the variables for storing data obtained from database!! */
+
+// if you need the variables as states instead, then uncomment this block of code
+/*
+const [fulldata,setFullData]=useState({})
+const [DOJdata,setDOJData]=useState({})
+const [DOLdata,setDOLData]=useState({})
+const [EMPTYPEdata,setEMPTYPEData]=useState({})
+const [DIVERSITYdata,setDIVERSITYData]=useState({})
+const [LOCATIONdata,setLOCATIONData]=useState({})
+*/
+
+//if you want the data as normal variables instead of states
+//import the data of all rows into this variable
+//replace RHS of the equation as necessary
 const fulldata={"rows":[
     {   "key": [913347,"Anna","QWE","Dept 1",
                 "YES","P","EGLC|A021|6F","Frank",
@@ -29,6 +47,7 @@ const fulldata={"rows":[
     ]
 }
 
+//import the data of DOJ into this variable
 const DOJdata={"rows":[
     {key:[2000,1],value:1},
     {key:[2000,2],value:2},
@@ -36,6 +55,7 @@ const DOJdata={"rows":[
     {key:[2000,8],value:2}
 ]}
 
+//import the data of DOL into this variable
 const DOLdata={"rows":[
     {key:[null,null],value:4},
     {key:[2001,2],value:1},
@@ -43,6 +63,7 @@ const DOLdata={"rows":[
     {key:[2002,5],value:0}
 ]}
 
+//import the data of Employee type into this variable
 const EMPTYPEdata={"rows":[
     {key:[2000,1,null,null,"P","Danny"],value:1},
     {key:[2000,2,2001,2,"T","Georgia"],value:2},
@@ -50,6 +71,7 @@ const EMPTYPEdata={"rows":[
     {key:[2000,4,2002,1,"P","Georgia"],value:1}
 ]}
 
+//import the data of Diversity of this variable
 const DIVERSITYdata={"rows":[
     {key:[2000,1,null,null,"Y","Erin"],value:1},
     {key:[2000,2,2001,2,"Y","Georgia"],value:3},
@@ -57,6 +79,7 @@ const DIVERSITYdata={"rows":[
     {key:[2000,4,2002,1,"N","Erin"],value:1}
 ]}
 
+//import the data of location into this variable
 const LOCATIONdata={"rows":[
     {key:[2000,1,null,null,"Bangalore","Erin"],value:1},
     {key:[2000,1,null,null,"Chennai","Danny"],value:1},
@@ -66,8 +89,11 @@ const LOCATIONdata={"rows":[
 ]}
 
 
+//this is where i send the data to the files that request them
+//so, fetching from database only needs to occur in this file!
+
 export default function getData(choice){
-    if(choice=="fulldata"){
+    if(choice==="fulldata"){
         return fulldata.rows;
     }
     if(choice==="DOJ"){

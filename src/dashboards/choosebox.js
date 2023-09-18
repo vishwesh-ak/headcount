@@ -20,9 +20,9 @@ var data_dol=getData("DOL")
 export default function ChooseBox(a,b,c,d){
     if(a==="areachart"){
         if(b==="doj")
-            return AreaGraph(data_doj,"Employee join count per month");
+            return AreaGraph(data_doj,"doj","Employee join count per month");
         else
-            return AreaGraph(data_dol,"Employee leave count per month");
+            return AreaGraph(data_dol,"dol","Employee leave count per month");
     }
     if(a==="piechart"){
         if(b==="emptype")

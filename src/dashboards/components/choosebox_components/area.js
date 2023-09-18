@@ -2,13 +2,13 @@ import { AreaChart, GroupedBarChart, LineChart, SimpleBarChart } from "@carbon/c
 import areaoptions from "../miscellaneous/areachart_options"
 import padValues from "../functions/padValuesAreaChart"
 
-const AreaGraph=(data,groupname)=>{
-    var newdata=padDOJDOLValues(data,groupname)
+const AreaGraph=(data,groupname,grouplegendname)=>{
+    var newdata=padDOJDOLValues(data,grouplegendname)
     
     return(
         <>
         <div className="boxheader" style={{width:"100%"}}>
-                Box 3
+                {groupname==="doj"?"DOJ":"DOL"}
         </div>
         <div className="boxarea" style={{width:"100%"}}>
             <AreaChart data={newdata} options={areaoptions}/>
