@@ -6,7 +6,7 @@
 
 
 
-- To implement dashboard database, only work on the >src>dashboards>components>data folder
+- To implement dashboard database, only work on the >src>dashboards>data folder
     - Each data is stored within a separate file in the folder
     - DIVERSITYdata.js will obtain diversity data
     - DOJdata.js will obtain data of date of joining
