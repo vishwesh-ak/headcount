@@ -1,5 +1,5 @@
 import { useState } from "react";
-import getData from "../../charts/data/datas";
+import getData from "../../data/datas";
 import { FormGroup,TextInput,Button } from "@carbon/react";
 import makeBarGraphValues from "../functions/makeBarGraphValues";
 import { TableLeader } from "./table";

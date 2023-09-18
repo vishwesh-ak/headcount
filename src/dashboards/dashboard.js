@@ -5,7 +5,7 @@ import Dash1 from "./components/dashboards/dash1";
 import Dash2 from "./components/dashboards/dash2";
 import Dash3 from "./components/dashboards/dash3";
 import OnboardingSeparation from "./components/dashboards/joinleave";
-import getData from "./charts/data/datas";
+import getData from "./data/datas";
 export default function Dashboard(){
     const data_doj=getData("DOJ");
     const data_dol=getData("DOL");

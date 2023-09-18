@@ -1,8 +1,6 @@
 //changed
-
-
 import "./index.css"
-import getData from "./charts/data/datas";
+import getData from "./data/datas";
 import "../App.scss"
 
 import AreaGraph from "./components/choosebox_components/area"
